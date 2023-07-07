@@ -6,8 +6,7 @@ import ListingReservation from "@/app/components/listings/ListingReservation";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import { categories } from "@/app/components/navbar/Categories";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { SafeListings, SafeUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
+import { SafeListings, SafeReservations, SafeUser } from "@/app/types";
 import axios from "axios";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
@@ -21,7 +20,7 @@ const initialDateRange = {
     key: 'selection'
 };
 interface ListingClientProps{
-    reservations?: Reservation[];
+    reservations?: SafeReservations[];
     listing: SafeListings & {
         user: SafeUser
     };
